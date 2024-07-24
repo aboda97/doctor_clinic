@@ -1,9 +1,14 @@
 import 'package:doctor_clinic/core/utils/app_colors.dart';
 import 'package:doctor_clinic/features/splash_view_feature/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.light,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Doctor Clinic',
       theme: ThemeData(
         fontFamily: 'Poppins',
