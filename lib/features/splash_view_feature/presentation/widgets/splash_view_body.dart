@@ -32,7 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           children: [
             Image.asset(AppImagesPaths.splashLogo),
             Text(
-              'Markaz ElAmal',
+              'Welcome to Our Clinic',
               style: AppTextStyles.txtStyle24.copyWith(
                 fontFamily: 'Peralta',
                 fontWeight: FontWeight.w400,
