@@ -1,7 +1,6 @@
 import 'package:doctor_clinic/features/on_boarding_view_feature/presentation/on_boarding_global_variable.dart';
-import 'package:doctor_clinic/features/on_boarding_view_feature/presentation/widgets/on_boarding_container_items.dart';
+import 'package:doctor_clinic/features/on_boarding_view_feature/presentation/widgets/on_boarding_items_contains.dart';
 import 'package:flutter/material.dart';
-
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
@@ -15,7 +14,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   Widget build(BuildContext context) {
     return PageView.builder(
       controller: onBoardingController,
-      itemBuilder: (context, index) => OnBoardingContainerItems(
+      itemBuilder: (context, index) => OnBoardingItemsContains(
         onBoardingModel: onBoardingItems[index],
       ),
       onPageChanged: (int index) {

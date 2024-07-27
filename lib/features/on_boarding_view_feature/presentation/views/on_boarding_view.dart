@@ -1,17 +1,12 @@
 import 'package:doctor_clinic/core/utils/app_colors.dart';
+import 'package:doctor_clinic/core/utils/app_text_styles.dart';
 import 'package:doctor_clinic/features/auth_freatures/Login/presentation/views/login_view.dart';
 import 'package:doctor_clinic/features/on_boarding_view_feature/presentation/widgets/on_boarding_view_body.dart';
 import 'package:flutter/material.dart';
 
-
-class OnBoardingView extends StatefulWidget {
+class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
 
-  @override
-  State<OnBoardingView> createState() => _OnBoardingViewState();
-}
-
-class _OnBoardingViewState extends State<OnBoardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +14,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       appBar: AppBar(
         leading: TextButton(
           onPressed: () {},
-          child:  Text(
+          child: Text(
             'AR',
+            style: AppTextStyles.txtStyle20.copyWith(
+              fontWeight: FontWeight.w700,
+              color: AppColors.whiteColor,
+            ),
           ),
         ),
         actions: [
@@ -33,8 +32,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 }),
               );
             },
-            child:  const Text(
+            child: Text(
               'Skip',
+              style: AppTextStyles.txtStyle20.copyWith(
+                fontWeight: FontWeight.w700,
+                color: AppColors.whiteColor,
+              ),
             ),
           ),
         ],

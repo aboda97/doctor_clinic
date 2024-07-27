@@ -1,4 +1,3 @@
-
 import 'package:doctor_clinic/core/utils/app_colors.dart';
 import 'package:doctor_clinic/core/utils/app_text_styles.dart';
 import 'package:doctor_clinic/features/auth_freatures/Login/presentation/views/login_view.dart';
@@ -7,23 +6,27 @@ import 'package:doctor_clinic/features/on_boarding_view_feature/presentation/on_
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBoardingContainerItems extends StatelessWidget {
-  const OnBoardingContainerItems({super.key, required this.onBoardingModel});
+class OnBoardingItemsContains extends StatelessWidget {
+  const OnBoardingItemsContains({super.key, required this.onBoardingModel});
   final OnBoardingModel onBoardingModel;
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Column(
       children: [
         Expanded(
-           flex: 5,
-          child: Image.asset(
-            onBoardingModel.image,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+            child: Image.asset(
+              onBoardingModel.image,
+            ),
           ),
         ),
         Expanded(
-          flex: 4,
           child: Container(
-            decoration:  const BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(35.0),
@@ -31,33 +34,30 @@ class OnBoardingContainerItems extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding:  const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 40.0,
+              padding: EdgeInsets.symmetric(
+                horizontal: size.width * 0.05,
+                vertical: size.height * 0.05,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    onBoardingModel.title,
-                    style:  AppTextStyles.txtStyle24),
-                   const SizedBox(
-                    height: 30.0,
+                  Text(onBoardingModel.title,
+                      style: AppTextStyles.txtStyle24.copyWith()),
+                  SizedBox(
+                    height: size.height * 0.03,
                   ),
-                  // const Spacer(),
-                  Text(
-                    onBoardingModel.description,
-                    style:  AppTextStyles.txtStyle18
+                  Text(onBoardingModel.description,
+                      style: AppTextStyles.txtStyle18.copyWith()),
+                  SizedBox(
+                    height: size.height * 0.05,
                   ),
-                 
-                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SmoothPageIndicator(
                           controller: onBoardingController,
-                          effect:  const ExpandingDotsEffect(
-                            dotColor: Colors.grey,
+                          effect: const ExpandingDotsEffect(
+                            dotColor: AppColors.secondaryColor,
                             activeDotColor: AppColors.primaryColor,
                             dotHeight: 12.0,
                             dotWidth: 10.0,
@@ -81,13 +81,13 @@ class OnBoardingContainerItems extends StatelessWidget {
                                 duration: const Duration(milliseconds: 350),
                                 curve: Curves.easeIn);
                           },
-                          icon:  const Icon(
+                          icon: const Icon(
                             Icons.arrow_back,
                             size: 32,
                           ),
-                          label:  const Text(
+                          label: const Text(
                             'Next',
-                            style: TextStyle(fontSize: 20.0),
+                            style: AppTextStyles.txtStyle20,
                           ),
                         ),
                       ),
