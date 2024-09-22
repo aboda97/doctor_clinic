@@ -1,5 +1,6 @@
 import 'package:doctor_clinic/core/utils/app_colors.dart';
 import 'package:doctor_clinic/core/utils/app_text_styles.dart';
+import 'package:doctor_clinic/features/auth_freatures/Login/presentation/widgets/login_container.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -44,22 +45,7 @@ class LoginViewBody extends StatelessWidget {
               )
             ],
           ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 45.0, vertical: 230.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.primaryColor,
-                border: Border.all(
-                  color: AppColors.whiteColor,
-                  width: 3,
-                ),
-                borderRadius: BorderRadius.circular(
-                  30.0,
-                ),
-              ),
-            ),
-          ),
+          const LoginContainer(),
           Positioned(
             bottom: 0,
             child: Padding(
