@@ -1,7 +1,6 @@
 import 'package:doctor_clinic/core/utils/app_colors.dart';
 import 'package:doctor_clinic/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -10,70 +9,80 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 21.0,
-                vertical: 68.0,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 25.0,
+                    vertical: 80.0,
+                  ),
+                  child: Text(
+                    'Let\'s Start with sign in',
+                    style: AppTextStyles.txtStyle24.copyWith(
+                      color: AppColors.whiteColor,
+                    ),
+                  ),
+                ),
               ),
-              child: Text(
-                'Let\'s start with sign in',
-                style: AppTextStyles.txtStyle24.copyWith(
+              Expanded(
+                flex: 3,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    color: AppColors.whiteColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(60.0),
+                      topRight: Radius.circular(60.0),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 45.0, vertical: 230.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+                border: Border.all(
                   color: AppColors.whiteColor,
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(
+                  30.0,
                 ),
               ),
             ),
           ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(70),
-                  topRight: Radius.circular(70),
-                ),
-                color: AppColors.whiteColor,
-              ),
-              child: Stack(
+          Positioned(
+            bottom: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50.0),
+              child: Row(
                 children: [
-                  Container(
-                    margin:
-                        EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.whiteColor,
-                        width: 4.0,
-                      ),
-                      borderRadius: BorderRadius.circular(30.0),
-                      color: AppColors.primaryColor,
-                    ),
+                  const Text(
+                    'Don\'t have an account?',
+                    style: AppTextStyles.txtStyle16,
                   ),
-                  Positioned(
-                    bottom: 0,
-                    child: Row(
-                      children: [
-                        Text(
-                          'Don\'t have an account?',
-                          style: AppTextStyles.txtStyle16,
-                        ),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Sign Up',
-                              style: AppTextStyles.txtStyle16.copyWith(
-                                color: AppColors.primaryColorBold,
-                              ),
-                            ))
-                      ],
+                  TextButton.icon(
+                    onPressed: () {},
+                    label: Text(
+                      'Sign up',
+                      style: AppTextStyles.txtStyle16.copyWith(
+                        color: AppColors.primaryColorBold,
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-          ),
+          )
         ],
       ),
     );
