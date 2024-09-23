@@ -1,40 +1,60 @@
-import 'package:doctor_clinic/core/utils/app_colors.dart';
-import 'package:doctor_clinic/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class LoginTextFormField extends StatelessWidget {
-  const LoginTextFormField({super.key});
+  final TextInputType keyboardType;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final String labelText;
+  final Color? prefixIconColor;
+  final Color? suffixIconColor;
+  final TextStyle labelTextStyle;
+  final Color borderColor;
+  final String? Function(String?)? validator;
+  const LoginTextFormField({
+    super.key,
+    required this.keyboardType,
+    required this.labelText,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.prefixIconColor,
+    this.suffixIconColor,
+    required this.labelTextStyle,
+    required this.borderColor,
+    this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
-          prefixIcon: const Icon(
-            Icons.email_outlined,
+          prefixIcon: Icon(
+            prefixIcon,
           ),
-          prefixIconColor: AppColors.whiteColor,
-          labelText: 'Email',
-          labelStyle: AppTextStyles.txtStyle16.copyWith(
-            color: AppColors.whiteColor,
+          prefixIconColor: prefixIconColor,
+          suffixIcon: Icon(
+            suffixIcon,
           ),
-          enabledBorder: const OutlineInputBorder(
+          suffixIconColor: suffixIconColor,
+          labelText: labelText,
+          labelStyle: labelTextStyle,
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.whiteColor,
+              color: borderColor,
             ),
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(
                 14.0,
               ),
             ), // White border when not focused
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.whiteColor,
+              color: borderColor,
             ),
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(
                 14.0,
               ),
@@ -52,7 +72,7 @@ class LoginTextFormField extends StatelessWidget {
           ),
           focusedErrorBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-              color: AppColors.whiteColor,
+              color: Colors.red,
             ),
             borderRadius: BorderRadius.all(
               Radius.circular(
@@ -61,6 +81,7 @@ class LoginTextFormField extends StatelessWidget {
             ), // Red border on focus with error
           ),
         ),
+        validator: validator,
       ),
     );
   }

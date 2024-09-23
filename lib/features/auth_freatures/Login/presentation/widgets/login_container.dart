@@ -38,18 +38,40 @@ class LoginContainer extends StatelessWidget {
               ),
             ),
           ),
-          const LoginTextFormField(),
+          LoginTextFormField(
+            prefixIcon: Icons.email_outlined,
+            keyboardType: TextInputType.emailAddress,
+            labelText: 'Email',
+            prefixIconColor: AppColors.whiteColor,
+            labelTextStyle: AppTextStyles.txtStyle16.copyWith(
+              color: AppColors.whiteColor,
+            ),
+            borderColor: AppColors.whiteColor,
+          ),
           const SizedBox(
             height: 15.0,
           ),
-          const LoginTextFormField(),
+          LoginTextFormField(
+            prefixIcon: Icons.lock_outlined,
+            keyboardType: TextInputType.visiblePassword,
+            labelText: 'PassWord',
+            prefixIconColor: AppColors.whiteColor,
+            labelTextStyle: AppTextStyles.txtStyle16.copyWith(
+              color: AppColors.whiteColor,
+            ),
+            borderColor: AppColors.whiteColor,
+          ),
           const SizedBox(
             height: 30.0,
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             width: MediaQuery.of(context).size.width,
-            child: CustomElevatedButton(),
+            child: const CustomElevatedButton(
+              textBtn: 'Sign in',
+              backgroundColorBtn: AppColors.primaryColor,
+              foregroundColorBtn: AppColors.whiteColor,
+            ),
           ),
           TextButton(
               onPressed: () {},
