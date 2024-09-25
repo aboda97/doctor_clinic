@@ -45,28 +45,31 @@ class LoginViewBody extends StatelessWidget {
               )
             ],
           ),
-          const LoginContainer(),
-          Positioned(
-            bottom: 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: Row(
-                children: [
-                  const Text(
-                    'Don\'t have an account?',
-                    style: AppTextStyles.txtStyle16,
-                  ),
-                  TextButton.icon(
-                    onPressed: () {},
-                    label: Text(
-                      'Sign up',
-                      style: AppTextStyles.txtStyle16.copyWith(
-                        color: AppColors.primaryColorBold,
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                const LoginContainer(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Don\'t have an account?',
+                        style: AppTextStyles.txtStyle16,
                       ),
-                    ),
+                      TextButton.icon(
+                        onPressed: () {},
+                        label: Text(
+                          'Sign up',
+                          style: AppTextStyles.txtStyle16.copyWith(
+                            color: AppColors.primaryColorBold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                )
+              ],
             ),
           )
         ],

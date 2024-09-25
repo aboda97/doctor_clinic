@@ -1,15 +1,16 @@
-import 'package:doctor_clinic/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String textBtn;
   final Color backgroundColorBtn;
   final Color foregroundColorBtn;
+  final TextStyle btnTextStyle;
   const CustomElevatedButton({
     super.key,
     required this.textBtn,
     required this.backgroundColorBtn,
     required this.foregroundColorBtn,
+    required this.btnTextStyle,
   });
 
   @override
@@ -27,7 +28,7 @@ class CustomElevatedButton extends StatelessWidget {
       ),
       child: Text(
         textBtn,
-        style: AppTextStyles.txtStyle24,
+        style: btnTextStyle,
       ),
     );
   }

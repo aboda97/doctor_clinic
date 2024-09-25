@@ -2,6 +2,11 @@ import 'package:doctor_clinic/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
+  static const txtStyle14 = TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.w400,
+    color: AppColors.primaryColor,
+  );
   static const txtStyle16 = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w600,
